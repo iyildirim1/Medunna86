@@ -6,12 +6,12 @@ Feature: US 05
     Then user(patient) click 'Make an Appoinment' button
 
   @UIappointment
-  Scenario Outline:  Test01: Make an appoinment - Verify Button,Appoinment Date  cannot be chosen past dates
+  Scenario Outline:  Test01: Make an appoinment - Verify Button,Phone textbox cannot be empty
 
 
     And   user(patient) verify First name textbox is empty
     Then  user (patient) click textbox and enter their "<Firstname>"
-   # Then user(patient) verify Fist name textbox is full
+    Then user(patient) verify Fist name textbox is full
     And user(patient) verify Last name textbos is clear
     And   user(patient) click Last name textbox and enter  "<Lastname>"
     And   user (patient) verify Last Name textbox is not blank
@@ -23,16 +23,11 @@ Feature: US 05
     Then  user(patient) verify that @ and . sign are used
     And user(patient) verify email textbox is not blank
     And user(patient) verify Phone textbox is empty
-    Then  user (patient) click Phone textbox and write valid "<Phone>"
-    And user(patient) verify used dash after the third and sixth digits
-    And user(patient) verify Phone textbox is not clean
-    Then user(patient) verify the appointment date is up-to-date
-    And user(patient) click Send an Appoinment Request
-    And user(patient) verify toast container message Appointment Registration Saved
-    Then user(patient) navigate to icon, verifyit is seen,clickable and click the icon
-    Then user(patient) click on Register button
 
+    And user(patient) verify if the appoinment date is valid
+    Then user(patient) click on Send an Appoinment Request button
+    And  user(patient) verify notice message Phone number is required. is noted
 
     Examples:
       |Firstname|Lastname|SSN|Email|Phone|Date|
-      |Mehmet   |Acarr   |212-44-2190 |meh@gmail.com|345-786-9086 | |
+      |Memet   |Aci   |230-44-1908 |memet@gmail.com|    |04072022|
