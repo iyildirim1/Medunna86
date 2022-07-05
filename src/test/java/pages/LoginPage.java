@@ -29,4 +29,10 @@ public class LoginPage {
     @FindBy(xpath="//*[text()='Register a new account']")
     public WebElement proceedToRegistration;
 
+    @FindBy(id = "account-menu")
+    public WebElement AccountMenu;
+
+    @FindBy(css = "button[type='submit'] span")
+    public WebElement SignInSubmitButton;
+
 }
