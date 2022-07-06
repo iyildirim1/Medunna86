@@ -9,8 +9,9 @@ Feature: Password edit test on homepage
     When user clicks to Password section in dropdown
     And user enter enters the current password as '<currentPassword>'
     And user enters new password as '<newPassword>'
+    And user enters new password confirmation as '<confirmNewPassword>'
     And user saves and changes the old password
 
     Examples: test data for password change
-    |username|password|currentPassword|newPassword|
-    |userteam86|userteam86|userteam86|userteam866|
+    |username|password|currentPassword|newPassword|confirmNewPassword|
+    |userteam86|userteam86|userteam86|userteam866|userteam866|
