@@ -1,9 +1,11 @@
 package pages;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import utilities.Driver;
+@JsonIgnoreProperties(ignoreUnknown = true)
 
 public class LoginPage {
 
@@ -28,5 +30,11 @@ public class LoginPage {
 
     @FindBy(xpath="//*[text()='Register a new account']")
     public WebElement proceedToRegistration;
+
+    @FindBy(id = "account-menu")
+    public WebElement AccountMenu;
+
+    @FindBy(css = "button[type='submit'] span")
+    public WebElement SignInSubmitButton;
 
 }
