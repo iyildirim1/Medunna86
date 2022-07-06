@@ -41,5 +41,5 @@ Feature: US 05
 
     Examples:
     |RegSSN|RegFirstname|RegLastname|Regusername|Regemail|RegNewpassword|RegNewpassword confirmation|
-    | 190-53-7860     |Mehmet      |Khann      |Meh-7      |khnnn@gmail.com|Meh72? |Meh72?                     |
+    | 190-53-7860     |Mehmet      |Khann      |Meh-7      |khnnn@gmail.com|Meh72? |Meh72? |
 
