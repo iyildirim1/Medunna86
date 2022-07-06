@@ -11,7 +11,7 @@ public class PasswordChangePage {
         PageFactory.initElements(Driver.getDriver(),this);
     }
 
-    @FindBy(xpath = "//span[normalize-space()='Password']")
+    @FindBy(xpath = "//li[@id='account-menu']//a[2]")
     public WebElement passwordChangeButton;
 
     @FindBy(xpath = "//input[@id='currentPassword']")
@@ -19,6 +19,16 @@ public class PasswordChangePage {
 
     @FindBy(xpath = "//input[@id='newPassword']")
     public WebElement newPassword;
+
+    @FindBy(xpath = "//input[@id='confirmPassword']")
+    public WebElement confirmNewPassword;
+
+    @FindBy(xpath = "//button[@type='submit']")
+    public WebElement passwordChangeSaveButton;
+
+    @FindBy(xpath = "//*[contains(text(),'Password changed!')]")
+    public WebElement successMessage;
+
 
     @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style, 'rgb(255, 0, 0)')]")
     public WebElement passwordStrength;

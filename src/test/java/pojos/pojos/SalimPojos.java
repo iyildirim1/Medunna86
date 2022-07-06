@@ -9,13 +9,14 @@ public class SalimPojos {
 
     }
 
-
     {
   "currentPassword": "string",
   "newPassword": "string"
+  "confirmNewPassword": "string"
 }
      */
 
+    private String confirmNewPassword;
     private String currentPassword;
     private String newPassword;
     private String username;
@@ -53,10 +54,19 @@ public class SalimPojos {
         this.newPassword = newPassword;
     }
 
+    public String getConfirmNewPassword() {
+        return confirmNewPassword;
+    }
+
+    public void setConfirmNewPassword(String confirmNewPassword) {
+        this.confirmNewPassword = confirmNewPassword;
+    }
+
     @Override
     public String toString() {
         return "SalimPojos{" +
-                "currentPassword='" + currentPassword + '\'' +
+                "confirmNewPassword='" + confirmNewPassword + '\'' +
+                ", currentPassword='" + currentPassword + '\'' +
                 ", newPassword='" + newPassword + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
