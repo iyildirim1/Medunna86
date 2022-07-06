@@ -1,11 +1,10 @@
-package stepdefinitions.uiStepdefs;
-
+package stepdefinitions;
 import com.github.javafaker.Faker;
-
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import org.junit.Test;
 import pages.AyselPage;
 import pojos.pojos.AyselPojos;
 import utilities.*;
@@ -512,6 +511,7 @@ public class Ayselstepdefinitions {
     public void userPatientClickOnRegistrationButton() {
         Driver.waitAndClick(ay.RegRegisterButton);
     }
+
 }
 
 
