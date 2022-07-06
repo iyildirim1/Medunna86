@@ -37,4 +37,6 @@ public class RegistrationPage {
 
     @FindBy(xpath = "//*[text()='Registration saved!']")
     public WebElement successMessageToastContainer;
+
+
 }
