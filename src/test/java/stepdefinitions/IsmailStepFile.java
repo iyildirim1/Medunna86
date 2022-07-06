@@ -26,6 +26,7 @@ public class IsmailStepFile {
 
     @And("user clicks on the account icon")
     public void userClicksOnTheAccountIcon() {
+
         ip.accountIcon.click();
     }
 
