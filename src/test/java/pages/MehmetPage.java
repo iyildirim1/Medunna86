@@ -51,4 +51,21 @@ public class MehmetPage {
     public WebElement saveButton;
     @FindBy(xpath = "//span[normalize-space()='Start Date']")
     public WebElement StartDate;
+    @FindBy(xpath = "//span[normalize-space()='ID']")
+    public WebElement IDDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='End Date']")
+    public WebElement EndDateDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='Status']")
+    public WebElement StatusDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='Description']")
+    public WebElement DescriptionDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='Created Date']")
+    public WebElement CreatedDateDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='Room']")
+    public WebElement RoomDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='Appointment']")
+    public WebElement AppointmentDisplayed;
+    @FindBy(xpath = "//span[normalize-space()='Patient']")
+    public WebElement Patient;
+
 }

@@ -1,6 +1,5 @@
-Feature:
-
-
+@US_14
+Feature:US_14
 
   @TC_01
   Scenario Outline: TC01
@@ -12,8 +11,8 @@ Feature:
     And Doctor clicks Sign In button
     And Doctor navigate to the My Pages
     And   clicks My Inpatients
+    And verifies all Inpatients as ID, Start Date, End Date, Status, Description, Created Date, Room, Appointment, Patient
     Then close the driver
-
 
     Examples: Sign In Page
       |username|password|
@@ -34,11 +33,9 @@ Feature:
     And Doctor update status
     Then Clicks save button
 
-
     Examples: Sign In Page
       |username|password|
       |doctor79|doctor  |
-
 
   @TC14_TC03
   Scenario Outline:TC03

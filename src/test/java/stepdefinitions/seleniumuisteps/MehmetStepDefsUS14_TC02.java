@@ -26,10 +26,9 @@ MehmetPage mh = new MehmetPage();
         Driver.getDriver().get(ConfigReader.getProperty("medunnaUrl"));
     }
     @When("Doctor navigate to the Sign In page")
-    public void doctor_navigate_to_the_sign_in_page()  {//reusableMethods.wait(3000);
+    public void doctor_navigate_to_the_sign_in_page()  {
         mh.signInClickIcon.click();
         mh.signInLink.click();
-
     }
     @When("Doctor types username as {string}")
     public void doctor_types_username_as(String username) {
@@ -53,15 +52,31 @@ MehmetPage mh = new MehmetPage();
         mh.myInpatientSegment.click();
         Driver.sleep(1000);
     }
+    @And("verifies all Inpatients as ID, Start Date, End Date, Status, Description, Created Date, Room, Appointment, Patient")
+    public void verifiesAllInpatientsAsIDStartDateEndDateStatusDescriptionCreatedDateRoomAppointmentPatient() {
+        Assert.assertTrue(mh.IDDisplayed.isDisplayed());
+        Assert.assertTrue(mh.StartDate.isDisplayed());
+        Assert.assertTrue(mh.EndDateDisplayed.isDisplayed());
+        Assert.assertTrue(mh.StatusDisplayed.isDisplayed());
+        Assert.assertTrue(mh.DescriptionDisplayed.isDisplayed());
+        Assert.assertTrue(mh.CreatedDateDisplayed.isDisplayed());
+        Assert.assertTrue(mh.RoomDisplayed.isDisplayed());
+        Assert.assertTrue(mh.AppointmentDisplayed.isDisplayed());
+        Assert.assertTrue(mh.Patient.isDisplayed());
+    }
+    @Then("close the driver")
+    public void closeTheDriver() {
+        Driver.closeDriver();
+    }
     @And("Doctor clicks edit button")
     public void doctorClicksEditButton()  {
         mh.editButton.click();
-
     }
     @And("Doctor update status")
     public void doctorUpdateStatus()  {
 
         mh.statusCheckBox.click();
+        Driver.sleep(3000);
 
 //       WebElement status = driver.findElement(By.xpath("//select[@id='in-patient-status']"));// mh.statusCheckBox.click();
 //        Select dropdownstatus = new Select(status);
@@ -73,13 +88,14 @@ MehmetPage mh = new MehmetPage();
         mh.saveButton.submit();
 
     }
-    @Then("close the driver")
-    public void closeTheDriver() {
 
-        Assert.assertTrue(mh.StartDate.isDisplayed());
-    }
 
     @And("Doctor can update room")
     public void doctorCanUpdateRoom() {
+
+        mh.roomCheckBox.click();
+
     }
+
+
 }
