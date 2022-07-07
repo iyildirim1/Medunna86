@@ -1,4 +1,4 @@
-package stepdefinitions;
+package stepdefinitions.uiStepdefs;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
