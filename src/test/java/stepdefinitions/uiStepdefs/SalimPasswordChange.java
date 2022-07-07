@@ -1,5 +1,6 @@
 package stepdefinitions.uiStepdefs;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -20,6 +21,7 @@ public class SalimPasswordChange {
 
     @Given("user provides their username as {string}")
     public void user_provides_their_username_as(String username) {
+
         Driver.waitAndSendText(loginPage.username, username);
 
         //passwordChange.setUsername(username);
