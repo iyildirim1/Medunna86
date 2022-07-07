@@ -1,4 +1,4 @@
-package stepdefinitions.seleniumuisteps;
+package stepdefinitions.uiStepdefs;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

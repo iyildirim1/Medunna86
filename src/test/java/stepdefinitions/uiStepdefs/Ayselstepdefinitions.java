@@ -1,12 +1,11 @@
-package stepdefinitions;
+package stepdefinitions.uiStepdefs;
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
-import org.junit.Test;
 import pages.AyselPage;
-import pojos.pojos.AyselPojos;
+import pojos.AyselPojos;
 import utilities.*;
 
 import static utilities.TxtWriter.saveUIAppoinmentData;
