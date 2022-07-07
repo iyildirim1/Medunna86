@@ -14,4 +14,4 @@ Feature: Password edit test on homepage
 
     Examples: test data for password change
     |username|password|currentPassword|newPassword|confirmNewPassword|
-    |userteam86|userteam866|userteam866|userteam86|userteam86|
+    |userteam86|userteam86|userteam86|userteam866|userteam866|
