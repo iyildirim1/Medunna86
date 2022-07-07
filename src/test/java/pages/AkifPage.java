@@ -74,9 +74,36 @@ public class AkifPage {
     @FindBy(xpath = "//option[@value='CANCELLED']")
     public WebElement canceledStatusDropDown;
 
-    @FindBy(xpath = "//span[normalize-space()='Save']")
+    @FindBy(xpath = "//*[contains(text(), 'Save')]")
     public WebElement appointmentSaveButton;
 
     @FindBy(xpath = "//div[@role='alert']")
     public WebElement appointmentSaveCompletedAlert;
+
+    @FindBy(xpath = "//div[@id='app-header']//a[2]")
+    public WebElement registrationButton;
+
+    @FindBy(xpath = "//input[@id='firstPassword']")
+    public WebElement registrationFirstPasswordTextBox;
+
+    @FindBy(xpath = "//div[@class='jh-card card']//li[1]")
+    public WebElement firstStrengthBar;
+
+    @FindBy(xpath = "//div[@class='jh-card card']//li[2]")
+    public WebElement secondStrengthBar;
+
+    @FindBy(xpath = "//div[@class='jh-card card']//li[3]")
+    public WebElement thirdStrengthBar;
+
+    @FindBy(xpath = "//div[@class='jh-card card']//li[4]")
+    public WebElement fourthStrengthBar;
+
+    @FindBy(xpath = "//div[@class='jh-card card']//li[5]")
+    public WebElement fifthStrengthBar;
+
+    @FindBy(xpath = "//div[@class='invalid-feedback']")
+    public WebElement invalidPassword;
+
+    @FindBy(xpath = "//ul[@id='strengthBar']")
+    public WebElement passwordBarText;
 }
