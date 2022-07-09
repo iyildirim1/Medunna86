@@ -29,19 +29,24 @@ public class PasswordChangePage {
     @FindBy(xpath = "//*[contains(text(),'Password changed!')]")
     public WebElement successMessage;
 
+    @FindBy(xpath = "//*[contains(text(),'An error has occurred! The password could not be changed.')]")
+    public WebElement PasswordCantChangeError;
 
-    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style, 'rgb(255, 0, 0)')]")
+
+    @FindBy(xpath = "(//li[@class='point'])[1]")
     public WebElement passwordStrength;
 
-    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style, 'rgb(221, 221, 221)')][1]")
+    @FindBy(xpath = "(//li[@class='point'])[2]")
     public WebElement passwordStrength1;
 
-    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style, 'rgb(221, 221, 221)')][2]")
+    @FindBy(xpath = "(//li[@class='point'])[3]")
     public WebElement passwordStrength2;
 
-    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style, 'rgb(221, 221, 221)')][3]")
+    @FindBy(xpath = "(//li[@class='point'])[4]")
     public WebElement passwordStrength3;
 
-    @FindBy(xpath = "//*[@id='strengthBar']/li[contains(@style, 'rgb(221, 221, 221)')][4]")
+    @FindBy(xpath = "(//li[@class='point'])[5]")
     public WebElement passwordStrength4;
+
+
 }

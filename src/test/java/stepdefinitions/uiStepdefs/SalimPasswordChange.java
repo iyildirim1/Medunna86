@@ -7,12 +7,11 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import pages.LoginPage;
 import pages.PasswordChangePage;
-import pojos.SalimPojos;
+import utilities.ConfigReader;
 import utilities.Driver;
 
 public class SalimPasswordChange {
 
-    SalimPojos passwordChange = new SalimPojos();
     LoginPage loginPage = new LoginPage();
     PasswordChangePage passwordChangePage = new PasswordChangePage();
 
@@ -20,17 +19,15 @@ public class SalimPasswordChange {
 
     @Given("user provides their username as {string}")
     public void user_provides_their_username_as(String username) {
-
+        Driver.getDriver().get(ConfigReader.getProperty("medunnaLoginPage"));
         Driver.waitAndSendText(loginPage.username, username);
 
-        //passwordChange.setUsername(username);
     }
 
     @Given("user provides their password as {string}")
     public void user_provides_their_password_as(String password) {
         Driver.waitAndSendText(loginPage.password, password);
 
-       // passwordChange.setPassword(password);
     }
 
     @Given("user clicks on the Sign In button")
@@ -50,13 +47,11 @@ public class SalimPasswordChange {
     public void user_enter_enters_the_current_password_as(String currentPassword) {
         Driver.waitAndSendText(passwordChangePage.currentPassword, currentPassword);
 
-        //passwordChange.setCurrentPassword(currentPassword);
     }
     @When("user enters new password as {string}")
     public void user_enters_new_password_as(String newPassword) {
         Driver.waitAndSendText(passwordChangePage.newPassword, newPassword);
 
-        //passwordChange.setNewPassword(newPassword);
 
     }
 
@@ -64,7 +59,6 @@ public class SalimPasswordChange {
     public void userEntersNewPasswordConfirmationAsConfirmNewPassword(String confirmNewPassword) {
         Driver.waitAndSendText(passwordChangePage.confirmNewPassword, confirmNewPassword);
 
-        //passwordChange.setNewPassword(confirmNewPassword);
     }
 
     @When("user saves and changes the old password")
@@ -72,6 +66,69 @@ public class SalimPasswordChange {
         Driver.waitAndClick(passwordChangePage.passwordChangeSaveButton);
         Driver.sleep(1000);
         Assert.assertTrue(passwordChangePage.successMessage.isDisplayed());
+    }
+
+    // ============= Password strength bar level begins here =====================
+
+
+    @When("user enters 7 chars to new password text box as {string}")
+    public void user_enters_chars_to_new_password_text_box_as(String newPassword_7char) {
+        Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_7char);
+//        Assert.assertTrue(passwordChangePage.passwordStrength.isDisplayed());
+
+
+    }
+    @When("user enters a lowercase char {string} and level bar changes accordingly")
+    public void user_enters_a_lowercase_char_and_level_bar_changes_accordingly(String newPassword_s) {
+        Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_s);
+        Driver.sleep(1000);
+//        Assert.assertTrue(passwordChangePage.passwordStrength.isDisplayed());
+
+
+    }
+    @When("user enters an uppercase char as {string} and level bar changes accordingly")
+    public void user_enters_an_uppercase_char_as_and_level_bar_changes_accordingly(String newPassword_sA) {
+        Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_sA);
+        Driver.sleep(1000);
+//        Assert.assertTrue(passwordChangePage.passwordStrength1.isDisplayed());
+
+    }
+    @And("user enters a digit as {string}and level bar changes accordingly")
+    public void userEntersADigitAsNewPassword_sAAndLevelBarChangesAccordingly(String newPassword_sA1) {
+        Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_sA1);
+        Driver.sleep(1000);
+//        Assert.assertTrue(passwordChangePage.passwordStrength3.isDisplayed());
+
+    }
+    @When("user enters a special char as {string} and level bar changes accordingly")
+    public void user_enters_a_special_char_as_and_level_bar_changes_accordingly(String newPassword_sA1_) {
+        Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_sA1_);
+        Driver.sleep(1000);
+//        Assert.assertTrue(passwordChangePage.passwordStrength4.isDisplayed());
+//        Assert.assertTrue(passwordChangePage.passwordStrength4.);
+
+    }
+    // =====================Old password usage as new password is disabled begins here ========================
+
+    @When("user enters the current password to new password text box as {string}")
+    public void user_enters_the_current_password_to_new_password_text_box_as(String newPassword) {
+        Driver.waitAndSendText(passwordChangePage.newPassword, newPassword);
+
+
+    }
+    @When("user enters the current password to new password confirmation text box as {string}")
+    public void user_enters_the_current_password_to_new_password_confirmation_text_box_as(String newPassword_) {
+        Driver.waitAndSendText(passwordChangePage.confirmNewPassword, newPassword_);
+
+
+    }
+    @Then("user clicks the save button and observes An error has occurred! The password could not be changed. popup message")
+    public void userClicksTheSaveButtonAndObservesAnErrorHasOccurredThePasswordCouldNotBeChangedPopupMessage() {
+        Driver.waitAndClick(passwordChangePage.passwordChangeSaveButton);
+        Driver.sleep(1000);
+        Assert.assertTrue(passwordChangePage.PasswordCantChangeError.isDisplayed());
+
+
     }
 
 
