@@ -1,4 +1,4 @@
-@akif
+@US11
 Feature: US11
   Scenario Outline: TC01
     Given Physician goes to the Medunna Home Page

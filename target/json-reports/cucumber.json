@@ -1,1 +1,492 @@
-[]
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 47667509300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User goes to Medunna home page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_goes_to_medunna_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 114505200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User navigates to the registration page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_navigates_to_the_registration_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 42296300,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks to password textbox",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_clicks_to_password_textbox()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-07-09T02:01:15.548Z",
+        "line": 36,
+        "name": "TC05",
+        "description": "",
+        "id": "us03;tc05;;2",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 67425000,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "User should enters at least seven chars \"asda1A.\" with including one digit and uppercase and special char",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"asda1A.\"",
+                  "offset": 40
+                }
+              ],
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_should_enters_at_least_seven_chars_with_including_one_digit_and_uppercase_and_special_char(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 91106000,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "Verify Password strength bar color is green",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.verify_password_strength_bar_color_is_green()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@US03"
+          },
+          {
+            "name": "@asd"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 155193400,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User goes to Medunna home page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_goes_to_medunna_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 85575600,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User navigates to the registration page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_navigates_to_the_registration_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 35767400,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks to password textbox",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_clicks_to_password_textbox()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-07-09T02:02:03.614Z",
+        "line": 37,
+        "name": "TC05",
+        "description": "",
+        "id": "us03;tc05;;3",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 54701700,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "User should enters at least seven chars \"asdas1A.\" with including one digit and uppercase and special char",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"asdas1A.\"",
+                  "offset": 40
+                }
+              ],
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_should_enters_at_least_seven_chars_with_including_one_digit_and_uppercase_and_special_char(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 68648600,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "Verify Password strength bar color is green",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.verify_password_strength_bar_color_is_green()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@US03"
+          },
+          {
+            "name": "@asd"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 139677500,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User goes to Medunna home page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_goes_to_medunna_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 84056200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User navigates to the registration page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_navigates_to_the_registration_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 38299000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks to password textbox",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_clicks_to_password_textbox()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-07-09T02:02:04.033Z",
+        "line": 38,
+        "name": "TC05",
+        "description": "",
+        "id": "us03;tc05;;4",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 63268300,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "User should enters at least seven chars \"asdas11A.\" with including one digit and uppercase and special char",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"asdas11A.\"",
+                  "offset": 40
+                }
+              ],
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_should_enters_at_least_seven_chars_with_including_one_digit_and_uppercase_and_special_char(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 69237300,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "Verify Password strength bar color is green",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.verify_password_strength_bar_color_is_green()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@US03"
+          },
+          {
+            "name": "@asd"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 134886200,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User goes to Medunna home page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_goes_to_medunna_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 82406500,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User navigates to the registration page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_navigates_to_the_registration_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 37638600,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks to password textbox",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_clicks_to_password_textbox()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-07-09T02:02:04.437Z",
+        "line": 39,
+        "name": "TC05",
+        "description": "",
+        "id": "us03;tc05;;5",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 60368200,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "User should enters at least seven chars \"asdas1AA.\" with including one digit and uppercase and special char",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"asdas1AA.\"",
+                  "offset": 40
+                }
+              ],
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_should_enters_at_least_seven_chars_with_including_one_digit_and_uppercase_and_special_char(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 70050600,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "Verify Password strength bar color is green",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.verify_password_strength_bar_color_is_green()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@US03"
+          },
+          {
+            "name": "@asd"
+          }
+        ]
+      },
+      {
+        "line": 3,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 131354100,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "User goes to Medunna home page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_goes_to_medunna_home_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 80776200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "User navigates to the registration page",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_navigates_to_the_registration_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 35694200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "User clicks to password textbox",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_clicks_to_password_textbox()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2022-07-09T02:02:04.832Z",
+        "line": 40,
+        "name": "TC05",
+        "description": "",
+        "id": "us03;tc05;;6",
+        "type": "scenario",
+        "keyword": "Scenario Outline",
+        "steps": [
+          {
+            "result": {
+              "duration": 58269700,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "User should enters at least seven chars \"asdas1A./\" with including one digit and uppercase and special char",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"asdas1A./\"",
+                  "offset": 40
+                }
+              ],
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.user_should_enters_at_least_seven_chars_with_including_one_digit_and_uppercase_and_special_char(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 70326300,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "Verify Password strength bar color is green",
+            "match": {
+              "location": "stepdefinitions.uiStepdefs.AkifStepDefinitions.verify_password_strength_bar_color_is_green()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@US03"
+          },
+          {
+            "name": "@asd"
+          }
+        ]
+      }
+    ],
+    "name": "US03",
+    "description": "",
+    "id": "us03",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/uiFeatures/US003_Akif.feature",
+    "tags": [
+      {
+        "name": "@US03",
+        "type": "Tag",
+        "location": {
+          "line": 1,
+          "column": 1
+        }
+      }
+    ]
+  }
+]

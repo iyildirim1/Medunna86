@@ -66,10 +66,10 @@ public class AkifPage {
     public WebElement appointmentStatusDropDown;
 
     @FindBy(xpath = "//option[@value='PENDING']")
-    public WebElement pendingStatusDropDown;
+    public WebElement pendingStatusDropdown;
 
     @FindBy(xpath = "//option[@value='COMPLETED']")
-    public WebElement completedStatusDropDown;
+    public WebElement completedStatusDropdown;
 
     @FindBy(xpath = "//option[@value='CANCELLED']")
     public WebElement canceledStatusDropDown;
