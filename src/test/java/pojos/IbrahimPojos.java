@@ -1,4 +1,4 @@
-package pojos.pojos;
+package pojos;
 
 public class IbrahimPojos {
 }

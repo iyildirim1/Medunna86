@@ -1,11 +1,34 @@
-package pojos.pojos;
+package pojos;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.Arrays;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class AyselPojos {
+public class UmitRegistrantPojos {
+    /*
+
+    {
+  "activated": true,
+  "authorities": [
+    "string"
+  ],
+  "createdBy": "string",
+  "createdDate": "2022-07-02T13:52:32.011Z",
+  "email": "string",
+  "firstName": "string",
+  "id": 0,
+  "imageUrl": "string",
+  "langKey": "string",
+  "lastModifiedBy": "string",
+  "lastModifiedDate": "2022-07-02T13:52:32.011Z",
+  "lastName": "string",
+  "login": "string",
+  "password": "string",
+  "ssn": "string"
+}
+     */
+
     private String firstName;
     private String lastName;
     private String ssn;
@@ -13,18 +36,7 @@ public class AyselPojos {
     private String langKey;
     private String password;
     private String email;
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
-    private String phoneNumber;
     private int id;
-    private String date;
     private boolean activated;
     private String [] authorities;
 
@@ -46,14 +58,6 @@ public class AyselPojos {
 
     public String getSsn() {
         return ssn;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
 
     public void setSsn(String ssn) {
@@ -116,9 +120,13 @@ public class AyselPojos {
         this.authorities = authorities;
     }
 
+    public UmitRegistrantPojos() {
+
+    }
+
     @Override
     public String toString() {
-        return "AyselPojos{" +
+        return "Registrant{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", ssn='" + ssn + '\'' +
@@ -126,9 +134,7 @@ public class AyselPojos {
                 ", langKey='" + langKey + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
-                ", phoneNumber='" + phoneNumber + '\'' +
                 ", id=" + id +
-                ", date='" + date + '\'' +
                 ", activated=" + activated +
                 ", authorities=" + Arrays.toString(authorities) +
                 '}';
