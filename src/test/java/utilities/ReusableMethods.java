@@ -1,7 +1,11 @@
 package utilities;
 
+import io.cucumber.java.DocStringType;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import org.apache.commons.io.FileUtils;
 
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
@@ -16,6 +20,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
+
+import static io.restassured.RestAssured.given;
 
 public class ReusableMethods {
 /*HOW DO YOU GET SCREENSHOT?
@@ -186,6 +192,32 @@ public class ReusableMethods {
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
     }
+
+    public static String enterCredentials(String username, String password) {
+
+        String credentials = "{\n" +
+                "  \"password\": \""+username+"\",\n" +
+                "  \"rememberMe\": true,\n" +
+                "  \"username\": \""+password+"\"\n" +
+                "}";
+        return credentials;
+
+    }
+
+
+    public static String getIdToken(String username, String password){
+        String accessTokenResponse =  given().contentType(ContentType.JSON).body(ReusableMethods.enterCredentials(username,password)).
+                when().post("https://medunna.com/api/authenticate").
+                then().assertThat().statusCode(200).extract().asString();
+
+        //parse json format to string to get the token only
+        JsonPath js = new JsonPath(accessTokenResponse);
+        String idToken = js.get("id_token");
+
+        return idToken;
+    }
+
+
 
 
 }

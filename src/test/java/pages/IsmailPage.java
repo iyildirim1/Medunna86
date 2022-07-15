@@ -102,6 +102,40 @@ public class IsmailPage {
     @FindBy(id = "save-entity")
     public WebElement savePatientChanges;
 
+    @FindBy(id = "ssn")
+    public WebElement ssn;
+
+    @FindBy(id = "firstName")
+    public WebElement firstName;
+
+    @FindBy(id = "lastName")
+    public WebElement lastName;
+
+    @FindBy(id = "firstPassword")
+    public WebElement firstPassword;
+
+    @FindBy(id = "secondPassword")
+    public WebElement secondPassword;
+
+    @FindBy(xpath ="//div[text()='Registration Saved']")
+    public WebElement registrationConfirmedMessage;
+
+    @FindBy(xpath = "//div[contains(text(),'A Patient is updated')]")
+    public WebElement patientUpdatedMessage;
+
+    @FindBy(linkText = "Search Patient")
+    public WebElement searchPatientLink;
+
+    @FindBy(linkText = "MY PAGES")
+    public WebElement myPagesLink;
+
+    @FindBy(xpath = "//input[@name='ssn']")
+    public WebElement ssnSearchBox;
+
+    @FindBy(xpath ="//tr/td[2]")
+    public WebElement ssnTableVerify;
+
+
 
 
 
