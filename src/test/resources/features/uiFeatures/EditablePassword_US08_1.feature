@@ -1,4 +1,4 @@
-Feature:
+Feature: @US_008
   Background: same things
 
 
@@ -17,6 +17,7 @@ Feature:
     Examples: test data for password change
     |username|password|currentPassword|newPassword|confirmNewPassword|
     |userteam86|userteam86|userteam86|userteam866|userteam866|
+    |userteam86|userteam866|userteam866|userteam86|userteam86|
 
 
     @PasswordStrengthLevelChart
@@ -36,7 +37,6 @@ Feature:
       Examples: required chars for the password strength bar
         |username     |password     |currentPassword|newPassword_7char|newPassword_s|newPassword_sA|newPassword_sA1|newPassword_sA1_|
         |patientteam86|patientteam86|patientteam86  |asdasda          |s            |A             |1              |_               |
-#        |patientteam86|patientteam86|patientteam86  |asdasda          |s            |d             |d              |d               |
 
     @OldPasswordUsageDisabledAsNewPassword
     Scenario Outline: Old password usage is disabled
