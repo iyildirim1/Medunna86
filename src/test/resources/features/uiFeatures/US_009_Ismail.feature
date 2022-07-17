@@ -16,7 +16,8 @@ Feature: US_009
     |username| |password|
     |teamadmin86| |teamadmin86|
 
-  @deneme
+
+
     Scenario Outline: TC 002 User can edit all patient information such as; 'id, firstname, lastname, birthdate, email, phone, gender, blood group, address, description, user, country and state/city
       Given user is on the landing page
       And user clicks on the account icon
@@ -26,7 +27,6 @@ Feature: US_009
       And user clicks on items and titles on the menu
       Then user clicks on patient portal
       When user clicks on edit
-      When user clicks on edit and change ID "<id>"
       When user clicks on edit and change Firstname "<firstname>"
       When user clicks on edit and change Lastname "<lastname>"
       When user clicks on edit and change Birthdate "<birthdate>"
@@ -36,10 +36,19 @@ Feature: US_009
       When user clicks on edit and change Blood Group "<bloodgroup>"
       When user clicks on edit and change Address "<address>"
       When user clicks on edit and change Description "<description>"
-      When user clicks on edit and change User "<user>"
-      When user clicks on edit and change Country "<country>"
-      When user clicks on edit and change State-City "<statecity>"
+      Then user clicks on save changes
 
       Examples:
-      |username||password||id||firstname||lastname||birthdate||email||phone||gender||bloodgroup||address||description||user||country||statecity|
-      |teamadmin86| |teamadmin86||202030||testFirstName||testLastName||09/05/1990||testemail@testemail.com||713-832-5050||male||A+||Unknown address||Test description||testuser1096||USA||Texas/Houston|
+      |username||password||firstname||lastname||birthdate||email||phone||gender||bloodgroup||address||description|
+      |teamadmin86| |teamadmin86||testFirstName||testLastName||02-02-00202218:36A||testemail@testemail.com||713-832-5050||MALE||A+||Unknown address||Test description|
+
+      @US009_TC003
+      Scenario Outline: TC 003 Staff should be able to search a patient by ssn id
+        Given Staff logs in to the account with username and password "<username>", "<password>"
+        And Staff navigates to the search patient page
+        And Staff enters the ssn Id to search "<ssn>"
+        Then Verify that the ssn number matches with the one entered "<ssn>"
+
+        Examples:
+        |username|password|ssn|
+        |staffteam86|staffteam86|321-54-4567|

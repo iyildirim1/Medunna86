@@ -1,7 +1,11 @@
 package utilities;
 
+import io.cucumber.java.DocStringType;
+import io.restassured.http.ContentType;
+import io.restassured.path.json.JsonPath;
 import org.apache.commons.io.FileUtils;
 
+import org.junit.Test;
 import org.openqa.selenium.*;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.interactions.Actions;
@@ -16,6 +20,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 import java.util.function.Function;
+
+import static io.restassured.RestAssured.given;
 
 public class ReusableMethods {
 /*HOW DO YOU GET SCREENSHOT?
@@ -185,6 +191,29 @@ public class ReusableMethods {
         int optionIndex = 1 + random.nextInt(weblist.size() - 1);
         select.selectByIndex(optionIndex);
         return select.getFirstSelectedOption();
+    }
+
+
+    public static String getIdToken(){
+        // Enter the username and password as a body
+        String credentials = "{\n" +
+                "  \"password\": \""+ConfigReader.getProperty("api_password")+"\",\n" +
+                "  \"rememberMe\": true,\n" +
+                "  \"username\": \""+ConfigReader.getProperty("api_username")+"\"\n" +
+                "}";
+       // Send post request with the username and password body
+        String accessTokenResponse =  given().contentType(ContentType.JSON).body(credentials).
+                when().post("https://medunna.com/api/authenticate").
+                then().assertThat().statusCode(200).extract().asString();
+
+        //parse the response(in json format) to string to get the token only
+        JsonPath js = new JsonPath(accessTokenResponse);
+        String idToken = js.get("id_token");
+
+        //Write on the console of the credentials used to login
+        System.out.println("Entering system as a username="+ConfigReader.getProperty("api_username")+" and password="+ConfigReader.getProperty("api_password"));
+
+        return idToken;
     }
 
 
