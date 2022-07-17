@@ -3,6 +3,7 @@ package stepdefinitions.uiStepdefs;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Select;
 import pages.AkifPage;
 import utilities.ConfigReader;
 import utilities.Driver;
@@ -21,10 +22,10 @@ public class AkifStepDefinitions {
         akifPage.signInDropDown.click();
         akifPage.signInButton.click();
     }
-    @Then("Physician enters {string} and {string}")
-    public void physician_enters_and(String string, String string2) {
-        akifPage.signInUsernameBox.sendKeys(string+ Keys.ENTER);
-        akifPage.signInPasswordBox.sendKeys(string2 + Keys.ENTER);
+    @Then("Physician enters their Username and Password")
+    public void physician_enters_their_username_and_password() {
+        akifPage.signInUsernameBox.sendKeys("teamdoctor86" + Keys.ENTER);
+        akifPage.signInPasswordBox.sendKeys("teamdoctor86" + Keys.ENTER);
     }
     @Then("Physician clicks Sign In button")
     public void physician_clicks_sign_in_button() {
@@ -35,8 +36,8 @@ public class AkifStepDefinitions {
         akifPage.physicianMyPagesButton.click();
         akifPage.physicianMyAppointmentsButton.click();
     }
-    @Then("Doctor sees patient's info such as id, start and end date, Status, physician and patient")
-    public void doctor_sees_patient_s_info_such_as_id_start_and_end_date_status_physician_and_patient() {
+    @Then("Physician sees patient's info such as id, start and end date, Status, physician and patient")
+    public void physician_sees_patient_s_info_such_as_id_start_and_end_date_status_physician_and_patient() {
         Assert.assertTrue(akifPage.firstPatientId.isDisplayed());
         Assert.assertTrue(akifPage.firstPatientStartDate.isDisplayed());
         Assert.assertTrue(akifPage.firstPatientEndDate.isDisplayed());
@@ -48,19 +49,19 @@ public class AkifStepDefinitions {
     public void physician_clicks_edit_button() {
         akifPage.firstPatientAppointmentEditButton.click();
     }
-    @Then("Doctor fills up the required fields as ->  Anamnesis - Treatment - Diagnosis")
-    public void doctor_fills_up_the_required_fields_as_anamnesis_treatment_diagnosis() {
+    @Then("Physician fills up the required fields as ->  Anamnesis - Treatment - Diagnosis")
+    public void physician_fills_up_the_required_fields_as_anamnesis_treatment_diagnosis() {
         akifPage.anamnesisTextBox.sendKeys("asds");
         akifPage.treatmentTextBox.sendKeys("asda");
         akifPage.diagnosisTextBox.sendKeys("dasds");
     }
-    @Then("Doctor can chose one of these options: PENDING, COMPLETED or CANCELLED")
-    public void doctor_can_chose_one_of_these_options_pending_completed_or_cancelled() {
-        akifPage.appointmentStatusDropDown.sendKeys("PENDING");
+    @Then("Physician can chose {string} : PENDING, COMPLETED or CANCELLED")
+    public void physician_can_chose_pending_completed_or_cancelled(String string) {
+        akifPage.appointmentStatusDropDown.sendKeys(string + Keys.ENTER);
     }
-    @Then("Doctor clicks save button")
-    public void doctor_clicks_save_button() {
-        Driver.waitForClickablility(akifPage.appointmentSaveButton, 13);
+    @Then("Physician clicks on Save button")
+    public void physician_clicks_on_save_button() {
+        Driver.waitForClickablility(akifPage.appointmentSaveButton, 5);
         JSUtils.scrollIntoViewByJS(akifPage.appointmentSaveButton);
         Driver.waitAndClick(akifPage.appointmentSaveButton);
     }
@@ -68,6 +69,41 @@ public class AkifStepDefinitions {
     public void verify_the_appointment_is_uptated_with_identifier_message_shown() {
         akifPage.appointmentSaveCompletedAlert.isDisplayed();
     }
+    @Then("close the browser")
+    public void close_the_browser() {
+        Driver.closeDriver();
+    }
+
+    @Then("Physician selects status as UNAPPROVED from dropdown")
+    public void physician_selects_status_as_unapproved_from_dropdown() {
+        Assert.assertTrue(akifPage.unapprovedStatusDropdown.isDisplayed());
+        Select select = new Select(akifPage.appointmentStatusDropDown);
+        select.selectByVisibleText("UNAPPROVED");
+    }
+    @Then("Physician verifies UNAPPROVED cannot be selectable")
+    public void physician_verifies_unapproved_cannot_be_selectable() {
+        Select select = new Select(akifPage.appointmentStatusDropDown);
+        select.selectByVisibleText("UNAPPROVED");
+        Assert.assertFalse(select.getFirstSelectedOption().getText().contains("UNAPPROVED"));
+    }
+    @Then("Physician selects status as COMPLETED from dropdown")
+    public void physician_selects_status_as_completed_from_dropdown() {
+        Select select = new Select(akifPage.appointmentStatusDropDown);
+        select.selectByVisibleText("COMPLETED");
+    }
+    @Then("Physician leaves blank required fields, anemnesis, treatment, diagnosis")
+    public void physician_leaves_blank_required_fields_anemnesis_treatment_diagnosis() {
+        akifPage.anamnesisTextBox.clear();
+        akifPage.treatmentTextBox.clear();
+        akifPage.diagnosisTextBox.clear();
+    }
+    @Then("Physician verifies This field is required message")
+    public void physician_verifies_this_field_is_required_message() {
+        akifPage.diagnosisFieldRequiredAlert.isDisplayed();
+        akifPage.treatmentFieldRequiredAlert.isDisplayed();
+        akifPage.anamnesisFieldRequiredAlert.isDisplayed();
+    }
+
 
     //----------------------------------------------
 
