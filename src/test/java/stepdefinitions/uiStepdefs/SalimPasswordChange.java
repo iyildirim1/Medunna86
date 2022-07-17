@@ -66,6 +66,7 @@ public class SalimPasswordChange {
         Driver.waitAndClick(passwordChangePage.passwordChangeSaveButton);
         Driver.sleep(1000);
         Assert.assertTrue(passwordChangePage.successMessage.isDisplayed());
+        Driver.closeDriver();
     }
 
     // ============= Password strength bar level begins here =====================
@@ -74,7 +75,9 @@ public class SalimPasswordChange {
     @When("user enters 7 chars to new password text box as {string}")
     public void user_enters_chars_to_new_password_text_box_as(String newPassword_7char) {
         Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_7char);
-//        Assert.assertTrue(passwordChangePage.passwordStrength.isDisplayed());
+        Driver.sleep(1000);
+        Assert.assertTrue(passwordChangePage.passwordStrength.getAttribute("style").contains("background-color: rgb(255, 0, 0);"));
+
 
 
     }
@@ -82,7 +85,7 @@ public class SalimPasswordChange {
     public void user_enters_a_lowercase_char_and_level_bar_changes_accordingly(String newPassword_s) {
         Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_s);
         Driver.sleep(1000);
-//        Assert.assertTrue(passwordChangePage.passwordStrength.isDisplayed());
+        Assert.assertTrue(passwordChangePage.passwordStrength.getAttribute("style").contains("background-color: rgb(255, 0, 0);"));
 
 
     }
@@ -90,23 +93,23 @@ public class SalimPasswordChange {
     public void user_enters_an_uppercase_char_as_and_level_bar_changes_accordingly(String newPassword_sA) {
         Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_sA);
         Driver.sleep(1000);
-//        Assert.assertTrue(passwordChangePage.passwordStrength1.isDisplayed());
+        Assert.assertTrue(passwordChangePage.passwordStrength1.getAttribute("style").contains("background-color: rgb(255, 153, 0);"));
 
     }
     @And("user enters a digit as {string}and level bar changes accordingly")
     public void userEntersADigitAsNewPassword_sAAndLevelBarChangesAccordingly(String newPassword_sA1) {
         Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_sA1);
         Driver.sleep(1000);
-//        Assert.assertTrue(passwordChangePage.passwordStrength3.isDisplayed());
+        Assert.assertTrue(passwordChangePage.passwordStrength3.getAttribute("style").contains("background-color: rgb(153, 255, 0);"));
 
     }
     @When("user enters a special char as {string} and level bar changes accordingly")
     public void user_enters_a_special_char_as_and_level_bar_changes_accordingly(String newPassword_sA1_) {
         Driver.waitAndSendText(passwordChangePage.newPassword, newPassword_sA1_);
         Driver.sleep(1000);
-//        Assert.assertTrue(passwordChangePage.passwordStrength4.isDisplayed());
-//        Assert.assertTrue(passwordChangePage.passwordStrength4.);
+        Assert.assertTrue(passwordChangePage.passwordStrength4.getAttribute("style").contains("background-color: rgb(0, 255, 0);"));
 
+        Driver.closeDriver();
     }
     // =====================Old password usage as new password is disabled begins here ========================
 
@@ -127,6 +130,8 @@ public class SalimPasswordChange {
         Driver.waitAndClick(passwordChangePage.passwordChangeSaveButton);
         Driver.sleep(1000);
         Assert.assertTrue(passwordChangePage.PasswordCantChangeError.isDisplayed());
+
+        Driver.closeDriver();
 
 
     }

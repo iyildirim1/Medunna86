@@ -33,19 +33,19 @@ public class PasswordChangePage {
     public WebElement PasswordCantChangeError;
 
 
-    @FindBy(xpath = "(//li[@class='point'])[1]")
+    @FindBy(xpath = "//div[@class='jh-card card']//li[1]")
     public WebElement passwordStrength;
 
-    @FindBy(xpath = "(//li[@class='point'])[2]")
+    @FindBy(xpath = "//div[@class='jh-card card']//li[2]")
     public WebElement passwordStrength1;
 
-    @FindBy(xpath = "(//li[@class='point'])[3]")
+    @FindBy(xpath = "//div[@class='jh-card card']//li[3]")
     public WebElement passwordStrength2;
 
-    @FindBy(xpath = "(//li[@class='point'])[4]")
+    @FindBy(xpath = "//div[@class='jh-card card']//li[4]")
     public WebElement passwordStrength3;
 
-    @FindBy(xpath = "(//li[@class='point'])[5]")
+    @FindBy(xpath = "//div[@class='jh-card card']//li[5]")
     public WebElement passwordStrength4;
 
 
