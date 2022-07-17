@@ -56,14 +56,26 @@ public class AkifPage {
     @FindBy(xpath = "//textarea[@id='appointment-anamnesis']")
     public WebElement anamnesisTextBox;
 
+    @FindBy(xpath = "(//div[contains(text(),'This field is required.')])[1]")
+    public WebElement anamnesisFieldRequiredAlert;
+
     @FindBy(xpath = "//textarea[@id='appointment-treatment']")
     public WebElement treatmentTextBox;
+
+    @FindBy(xpath = "(//div[contains(text(),'This field is required.')])[2]")
+    public WebElement treatmentFieldRequiredAlert;
 
     @FindBy(xpath = "//textarea[@id='appointment-diagnosis']")
     public WebElement diagnosisTextBox;
 
+    @FindBy(xpath = "(//div[contains(text(),'This field is required.')])[3]")
+    public WebElement diagnosisFieldRequiredAlert;
+
     @FindBy(xpath = "//select[@id='appointment-status']")
     public WebElement appointmentStatusDropDown;
+
+    @FindBy(xpath = "//option[@value='UNAPPROVED']")
+    public WebElement unapprovedStatusDropdown;
 
     @FindBy(xpath = "//option[@value='PENDING']")
     public WebElement pendingStatusDropdown;
