@@ -3,6 +3,7 @@ package stepdefinitions.dbStepDefs;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.junit.Assert;
+import utilities.DBUtils;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -16,10 +17,10 @@ public class IsmailDBSteps {
     public void databaseConnectionIsSetup() throws SQLException {
 
         //Setup database connection
-        con = DriverManager.getConnection("jdbc:postgresql://medunna.com:5432/medunna_db","medunnadb_user","Medunnadb_@129");
+       DBUtils.getConnection();
+       //Create the statement
+       DBUtils.getStatement();
 
-        //step 2
-        stmt = con.createStatement();
     }
 
     @Then("The username {string} provided is checked in the DB systsem for its uniqueness")
@@ -28,17 +29,17 @@ public class IsmailDBSteps {
         //step 3
         String s ="select * from jhi_user where login='"+username+"'";
 
-        ResultSet rs = stmt.executeQuery(s);
+       //Execute the query above and assign it to a resultset
+        ResultSet rs = DBUtils.executeQuery(s);
 
-        rs.next();
-        if(rs.getString("login").equals(username)){
-
-            con.close();
-            System.out.println(username+" is already on the database");
-            Assert.fail();
+        if (rs.next()){
+            DBUtils.closeConnection();
+            Assert.assertNotEquals(username,rs.getString("login").toLowerCase());
+            System.out.println("This username is already in the database");
 
         } else{
-            con.close();
+            DBUtils.closeConnection();
+            System.out.println("This username is not in the database");
             Assert.assertTrue(true);
         }
 
@@ -50,7 +51,7 @@ public class IsmailDBSteps {
 
         String s = "Select ssn from jhi_user where ssn='"+ssn+"'";
 
-        ResultSet rs = stmt.executeQuery(s);
+       ResultSet rs= DBUtils.executeQuery(s);
         rs.next();
         Assert.assertEquals(ssn,rs.getString("ssn"));
 

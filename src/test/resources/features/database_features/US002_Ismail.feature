@@ -1,6 +1,6 @@
 Feature: US002
 
-  @newdatabase
+
   Scenario Outline: TC 002 Check the the username provided is not on the database
 
     Given Database connection is setup

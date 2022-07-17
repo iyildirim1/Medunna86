@@ -193,31 +193,28 @@ public class ReusableMethods {
         return select.getFirstSelectedOption();
     }
 
-    public static String enterCredentials(String username, String password) {
 
+    public static String getIdToken(){
+        // Enter the username and password as a body
         String credentials = "{\n" +
-                "  \"password\": \""+username+"\",\n" +
+                "  \"password\": \""+ConfigReader.getProperty("api_password")+"\",\n" +
                 "  \"rememberMe\": true,\n" +
-                "  \"username\": \""+password+"\"\n" +
+                "  \"username\": \""+ConfigReader.getProperty("api_username")+"\"\n" +
                 "}";
-        return credentials;
-
-    }
-
-
-    public static String getIdToken(String username, String password){
-        String accessTokenResponse =  given().contentType(ContentType.JSON).body(ReusableMethods.enterCredentials(username,password)).
+       // Send post request with the username and password body
+        String accessTokenResponse =  given().contentType(ContentType.JSON).body(credentials).
                 when().post("https://medunna.com/api/authenticate").
                 then().assertThat().statusCode(200).extract().asString();
 
-        //parse json format to string to get the token only
+        //parse the response(in json format) to string to get the token only
         JsonPath js = new JsonPath(accessTokenResponse);
         String idToken = js.get("id_token");
 
+        //Write on the console of the credentials used to login
+        System.out.println("Entering system as a username="+ConfigReader.getProperty("api_username")+" and password="+ConfigReader.getProperty("api_password"));
+
         return idToken;
     }
-
-
 
 
 }
