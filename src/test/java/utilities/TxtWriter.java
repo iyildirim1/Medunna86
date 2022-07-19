@@ -1,5 +1,6 @@
 package utilities;
 import org.apache.xmlbeans.impl.xb.xsdschema.Attribute;
+import pojos.TestItem;
 import pojos.UmitRegistrantPojos;
 import pojos.AyselPojos;
 import pojos.User;
@@ -50,6 +51,25 @@ public class TxtWriter {
 
             BufferedWriter bw = new BufferedWriter(fw);
             bw.append(user.toString() + "\n");
+            bw.close();
+
+        }catch (Exception e) {
+            e.printStackTrace();
+
+        }
+
+    }
+
+    public static void saveTestRegisterData(TestItem testItem) {
+
+        try {
+            FileWriter fw = new FileWriter(ConfigReader.getProperty("test_item_data"), true);
+
+            // file creation
+            // location + fileName + txt
+
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.append(testItem.toString() + "\n");
             bw.close();
 
         }catch (Exception e) {

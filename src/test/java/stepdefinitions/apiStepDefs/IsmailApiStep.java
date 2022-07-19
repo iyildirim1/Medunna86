@@ -2,14 +2,19 @@ package stepdefinitions.apiStepDefs;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.junit.Assert;
+import pojos.TestItem;
 import pojos.User;
+import utilities.ConfigReader;
 import utilities.ReusableMethods;
+import utilities.TxtWriter;
 
 import java.sql.SQLOutput;
 import java.util.Collections;
@@ -22,11 +27,15 @@ public class IsmailApiStep {
     Response response;
     User[] users;
     User user;
+    TestItem testItemResponse;
+
+   Faker faker = new Faker();
+   TestItem testItem = new TestItem();
 
 
     @Given("Admin enters the system with the username and password")
     public void adminEntersTheSystemWithTheUsernameAndPassword() {
-        response = given().headers("Authorization","Bearer "+ReusableMethods.getIdToken(),
+        response = given().headers("Authorization","Bearer "+ReusableMethods.adminIdToken(),
                         "Content-Type",ContentType.JSON,
                         "Accept",ContentType.JSON)
                 .when().get("https://medunna.com/api/users?=size=2000");
@@ -60,7 +69,7 @@ public class IsmailApiStep {
     @Given("Staff enters the system with the username and password {string}")
     public void staffEntersTheSystemWithTheUsernameAndPassword(String ssn) {
 
-        response = given().headers("Authorization","Bearer "+ReusableMethods.getIdToken(),
+        response = given().headers("Authorization","Bearer "+ReusableMethods.adminIdToken(),
                         "Content-Type",ContentType.JSON,
                         "Accept",ContentType.JSON).queryParam("ssn",ssn)
                 .when()
@@ -68,4 +77,27 @@ public class IsmailApiStep {
     }
 
 
+    @Given("Admin sends post request to create a test item")
+    public void adminSendsPostRequestToCreateATestItem() {
+
+        testItem.setName(faker.superhero().name());
+        testItem.setDescription(faker.superhero().descriptor());
+        testItem.setPrice(faker.number().numberBetween(1,100));
+
+        RestAssured.baseURI= ConfigReader.getProperty("medunnaUrl");
+
+       response= given().headers("Authorization","Bearer "+ReusableMethods.adminIdToken(),
+                        "Content-Type",ContentType.JSON,
+                        "Accept",ContentType.JSON).body(testItem.createTestBody())
+                .when().post("api/c-test-items");
+
+        TxtWriter.saveTestRegisterData(testItem);
+    }
+
+    @Then("Admin receives the status code to verify successful test creation")
+    public void adminReceivesTheStatusCodeToVerifySuccessfulTestCreation() {
+
+        response.prettyPrint();
+
+    }
 }

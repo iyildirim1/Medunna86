@@ -46,4 +46,10 @@ public class Hooks {
 //        }
 
     }
+
+    @After
+    public void driverClose(){
+
+        Driver.closeDriver();
+    }
 }

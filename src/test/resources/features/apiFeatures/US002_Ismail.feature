@@ -7,18 +7,18 @@ Feature: US002
     Then the username "<username>" is verified by database that it's unqiue
 
     Examples:
-    |authUsername|authPassword|username|
-    |teamadmin86|teamadmin86  |sallamadfd|
+    |username|
+    |sallamadfd|
 
 
-    @API
+
     Scenario Outline:TC 004 staff should verify the patient details by ssn search
       Given Staff enters the system with the username and password "<ssn>"
       Then Staff searches for a patient by ssn id "<ssn>"
 
       Examples:
-        |authUsername|authPassword|ssn|
-      |staffteam86 |staffteam86 |321-54-4567|
+        |ssn|
+      |321-54-4567|
 
 
 
