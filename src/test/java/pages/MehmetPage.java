@@ -106,4 +106,21 @@ public class MehmetPage {
     public WebElement totalProteinCheckmark;
 
 
+
+
+
+    @FindBy(xpath = "//span[normalize-space()='Items&Titles']")
+    public WebElement itemsTitle ;
+    @FindBy(xpath = "//span[normalize-space()='Country']")
+    public WebElement country ;
+    @FindBy(xpath = "//span[normalize-space()='Create a new Country']")
+    public WebElement createANewCountry ;
+    @FindBy(xpath = "//input[@id='country-name']")
+    public WebElement createCountryNameInput ;
+    @FindBy(xpath = "//span[normalize-space()='Save']")
+    public WebElement createCountrySaveButton ;
+    @FindBy(xpath = "//div[@role='alert']")
+    public WebElement countryCretaedSuccesMessage;
+
+
 }
