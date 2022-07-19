@@ -8,6 +8,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import pages.IsmailPage;
+import pojos.TestItem;
 import pojos.User;
 import utilities.*;
 
@@ -22,6 +23,8 @@ public class IsmailStepFile {
     IsmailPage ip = new IsmailPage();
     Faker faker = new Faker();
     User user = new User();
+
+    TestItem testItem = new TestItem();
 
     @Given("user is on the landing page")
     public void userIsOnTheLandingPage() {
@@ -321,5 +324,106 @@ public class IsmailStepFile {
 
         String ssnOnTable = ip.ssnTableVerify.getText();
         Assert.assertEquals(ssn,ssnOnTable);
+    }
+
+
+    @And("Admin clicks on Create a New Test Item")
+    public void adminClicksOnCreateANewTestItem() {
+      Driver.waitAndClick(ip.createATest);
+    }
+
+    @Then("Admin verifies Create or edit a Test Item header")
+    public void adminVerifiesCreateOrEditATestItemHeader() {
+        String expected ="Create or edit a Test Item";
+
+        Assert.assertEquals(expected,ip.createTestPageTitle.getText());
+    }
+
+
+
+    @Given("Admin logins to the platform")
+    public void adminLoginsToThePlatform() {
+
+        Driver.getDriver().get(ConfigReader.getProperty("medunnaLoginPage"));
+      Driver.waitAndSendText(ip.usernameBoxSignIn,ConfigReader.getProperty("admin_api_username"));
+       Driver.waitAndSendText(ip.passwordBoxSignIn,ConfigReader.getProperty("admin_api_password"));
+        Driver.waitAndClick(ip.signInButton);
+
+    }
+
+    @And("Admin clicks on Items&Titles")
+    public void adminClicksOnItemsTitles() {
+        Driver.waitAndClick(ip.itemsAndTitlesButton);
+    }
+
+    @And("Admin clicks on Test Item")
+    public void adminClicksOnTestItem() {
+       Driver.waitAndClick(ip.testItemLink);
+    }
+
+
+    @And("Admin clicks on save test item")
+    public void adminClicksOnSaveTestItem() {
+
+        Driver.waitAndClick(ip.testSaveButton);
+
+    }
+
+    @Then("Admin gets successfull message Test item is created")
+    public void adminGetsSuccessfullMessageTestItemIsCreated() {
+
+        Assert.assertTrue(ip.testCreationMessage.isDisplayed());
+        //Save the data submitted
+        TxtWriter.saveTestRegisterData(testItem);
+    }
+
+    @And("Admin enters the test details name {string},{string}, {string}, {string}, {string}")
+    public void adminEntersTheTestDetailsName(String testName, String testDesc, String price, String minValue, String maxValue) {
+        testName= faker.superhero().name();
+        testItem.setName(testName);
+        testDesc=faker.superhero().descriptor();
+        testItem.setDescription(testDesc);
+        price = Integer.toString((int)( Math.random()*300));
+        testItem.setPrice(Double.parseDouble(price));
+        minValue = Integer.toString((int)( Math.random()*100));
+        testItem.setDefaultValMin(minValue);
+        maxValue = Integer.toString((int)( Math.random()*2000));
+        testItem.setDefaultValMax(maxValue);
+
+
+        Driver.waitAndSendText(ip.testName,testName);
+        Driver.waitAndSendText(ip.testDescription,testDesc);
+        Driver.waitAndSendText(ip.testPrice,price);
+        Driver.waitAndSendText(ip.testMinValue,minValue);
+        Driver.waitAndSendText(ip.testMaxValue,maxValue);
+    }
+
+    @When("Admin clicks on a test item to view")
+    public void adminClicksOnATestItemToView() {
+
+        Driver.waitAndClick(ip.randomTestItem);
+    }
+
+    @Then("Admin verifies the title Test Item with the ID given")
+    public void adminVerifiesTheTitleTestItemWithTheIDGiven() {
+
+        Assert.assertTrue(ip.testitemViewTitle.isDisplayed());
+
+
+    }
+
+    @When("Admin clicks on a test item to delete")
+    public void adminClicksOnATestItemToDelete() {
+
+        Driver.waitAndClick(ip.goToLastPageTestItems);
+        Driver.waitAndClick(ip.randomTestItemDelete);
+        Driver.waitAndClick(ip.testItemDeletePopUp);
+    }
+
+    @Then("Admin verifies the delete is confirmed message")
+    public void adminVerifiesTheDeleteIsConfirmedMessage() {
+
+        Driver.waitForVisibility(ip.testItemDeleteMessage,2);
+       Assert.assertTrue(ip.testItemDeleteMessage.isDisplayed());
     }
 }

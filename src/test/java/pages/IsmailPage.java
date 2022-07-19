@@ -135,6 +135,54 @@ public class IsmailPage {
     @FindBy(xpath ="//tr/td[2]")
     public WebElement ssnTableVerify;
 
+    @FindBy(id = "jh-create-entity")
+    public WebElement createATest;
+
+    @FindBy(id="c-test-item-name")
+    public WebElement testName;
+
+    @FindBy(id = "c-test-item-description")
+    public WebElement testDescription;
+
+    @FindBy(id = "c-test-item-price")
+    public  WebElement testPrice;
+    @FindBy(id = "c-test-item-defaultValMin")
+    public WebElement testMinValue;
+    @FindBy (id = "c-test-item-defaultValMax")
+    public WebElement testMaxValue;
+
+    @FindBy(id = "save-entity")
+    public WebElement testSaveButton;
+
+    @FindBy(xpath = "//div[contains(text(),'A new Test Item is created')]")
+    public WebElement testCreationMessage;
+
+    @FindBy(xpath = "//h2/span")
+    public WebElement createTestPageTitle;
+
+    @FindBy(linkText = "Test Item")
+    public WebElement testItemLink;
+
+    @FindBy(xpath = "//tr[10]/td[8]/div/a[1]")
+    public WebElement randomTestItem;
+
+    @FindBy(xpath = "//h2/span")
+    public WebElement testitemViewTitle;
+
+    @FindBy(id = "jhi-confirm-delete-cTestItem")
+    public WebElement testItemDeletePopUp;
+
+    @FindBy(xpath = "//tbody/tr[last()]/td[8]/div/a[3]")
+    public WebElement randomTestItemDelete;
+
+    @FindBy(xpath = "//div[contains(text(),'A Test Item is deleted')]")
+    public WebElement testItemDeleteMessage;
+
+    @FindBy(xpath = "//*[text()='»»']")
+    public WebElement goToLastPageTestItems;
+
+
+
 
 
 

@@ -9,6 +9,37 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
+    /*
+    activated*	boolean
+createdBy	string
+createdDate	string($date-time)
+email	string
+minLength: 5
+maxLength: 254
+firstName	string
+minLength: 0
+maxLength: 50
+id	integer($int64)
+imageUrl	string
+minLength: 0
+maxLength: 256
+langKey	string
+minLength: 2
+maxLength: 10
+lastName	string
+minLength: 0
+maxLength: 50
+login*	string
+minLength: 1
+maxLength: 50
+pattern: ^(?>[a-zA-Z0-9!$&*+=?^_`{|}~.-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*)|(?>[_.@A-Za-z0-9-]+)$
+resetDate	string($date-time)
+ssn*	string
+minLength: 0
+maxLength: 50
+pattern: ^(?!000|666)[0-8][0-9]{2}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}$
+     */
+
     private int id;
     private String login;
     private String firstName;
